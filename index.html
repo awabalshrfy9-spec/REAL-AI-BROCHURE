@@ -1,0 +1,965 @@
+&lt;!DOCTYPE html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;REAL AI BROCHURE - مصمم البروشورات&lt;/title&gt;
+  &lt;style&gt;
+    :root {
+      --navy: #0a1628;
+      --navy-light: #1a2a4a;
+      --gold: #c9a84c;
+      --gold-light: #e6c96e;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --white: #ffffff;
+      --text-dark: #2c2c2c;
+      --text-light: #f5f5f5;
+      --success: #28a745;
+      --danger: #dc3545;
+      --shadow: 0 4px 12px rgba(0,0,0,0.15);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.2);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 50%, #0d1f3c 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, rgba(201,168,76,0.15) 0%, rgba(10,22,40,0.3) 100%);
+      border-bottom: 3px solid var(--gold);
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--cream-dark);
+    }
+
+    .ai-notice {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--navy);
+      padding: 15px 25px;
+      border-radius: var(--radius);
+      text-align: center;
+      margin: 20px auto;
+      max-width: 800px;
+      font-weight: bold;
+      box-shadow: var(--shadow);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    @media (max-width: 968px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .panel {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: var(--radius);
+      padding: 25px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel-title {
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--gold);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--cream);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input[type="text"],
+    input[type="color"],
+    input[type="file"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 10px 14px;
+      border: 2px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.08);
+      color: var(--text-light);
+      font-size: 1rem;
+      transition: var(--transition);
+    }
+
+    input[type="text"]:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.2);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    input[type="color"] {
+      height: 45px;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .preset-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .preset-btn {
+      padding: 12px 10px;
+      border: 2px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      color: var(--cream);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .preset-btn:hover,
+    .preset-btn.active {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--navy);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .canvas-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .canvas-btn {
+      flex: 1;
+      min-width: 100px;
+      padding: 10px;
+      border: 2px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      color: var(--cream);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .canvas-btn:hover,
+    .canvas-btn.active {
+      background: var(--gold);
+      color: var(--navy);
+      border-color: var(--gold);
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+      color: var(--navy);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-secondary {
+      background: rgba(201,168,76,0.2);
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(201,168,76,0.3);
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: var(--white);
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: var(--white);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    #preview-container {
+      position: sticky;
+      top: 20px;
+    }
+
+    #brochure-preview {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 500px;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+      direction: rtl;
+    }
+
+    .brochure-canvas {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 40px;
+      min-height: 450px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .canvas-portrait {
+      width: 400px;
+      margin: 0 auto;
+    }
+
+    .canvas-square {
+      width: 450px;
+      margin: 0 auto;
+    }
+
+    .canvas-landscape {
+      width: 550px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 968px) {
+      .canvas-portrait, .canvas-square, .canvas-landscape {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+
+    .brochure-header {
+      text-align: center;
+      margin-bottom: 25px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid var(--gold);
+    }
+
+    .bro-logo {
+      max-width: 100px;
+      max-height: 80px;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .brochure-title {
+      font-size: 2rem;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .brochure-subtitle {
+      font-size: 1.2rem;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .brochure-body {
+      color: var(--text-dark);
+      font-size: 1rem;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    .text-blocks-container {
+      margin-top: 20px;
+    }
+
+    .text-block {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .text-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .text-block-title {
+      font-weight: bold;
+      color: var(--navy);
+      font-size: 1.1rem;
+    }
+
+    .text-block-content {
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    .remove-block-btn {
+      background: var(--danger);
+      color: var(--white);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .remove-block-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    #image-preview {
+      max-width: 150px;
+      max-height: 120px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 2px solid var(--gold);
+    }
+
+    .export-status {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .status-success {
+      background: rgba(40,167,69,0.2);
+      color: var(--success);
+      border: 1px solid var(--success);
+    }
+
+    .status-error {
+      background: rgba(220,53,69,0.2);
+      color: var(--danger);
+      border: 1px solid var(--danger);
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      border-top: 2px solid rgba(201,168,76,0.3);
+      color: var(--cream-dark);
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;div class="container"&gt;
+      &lt;h1&gt;REAL AI BROCHURE&lt;/h1&gt;
+      &lt;p&gt;مصمم البروشورات الاحترافي | Professional Brochure Designer&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;div class="container"&gt;
+    &lt;div class="ai-notice"&gt;
+      ⚠️ ملاحظة: ميزات الذكاء الاصطناعي لتوليد الصور والنصوص ستكون متاحة في التحديثات المستقبلية.
+      هذا المصمم يتطلب إدخال المحتوى يدوياً حالياً.
+    &lt;/div&gt;
+
+    &lt;div class="main-grid"&gt;
+      &lt;div class="controls-panel"&gt;
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;📝 محتوى البروشور&lt;/h2&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="business-title"&gt;عنوان الشركة / المؤسسة:&lt;/label&gt;
+            &lt;input type="text" id="business-title" value="شركة REAL AI للحلول المتقدمة" placeholder="أدخل عنوان الشركة"&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="business-subtitle"&gt;الشعار النصي:&lt;/label&gt;
+            &lt;input type="text" id="business-subtitle" value="نقدم حلولاً مبتكرة لمستقبل أفضل" placeholder="أدخل الشعار النصي"&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="business-body"&gt;نص الشركة:&lt;/label&gt;
+            &lt;textarea id="business-body" placeholder="أدخل نص تعريفي عن الشركة...">تأسست شركة REAL AI للحلول المتقدمة بهدف تقديم أفضل الحلول التقنية لمؤسسات الأعمال في المنطقة العربية. نحن نؤمن بأن التكنولوجيا هي مفتاح النجاح في العصر الحديث.
+
+تهدف شركتنا إلى تمكين المؤسسات من تحقيق أهدافها من خلال حلول ذكية ومتطورة تلبي احتياجات السوق المحلية والعالمية. فريقنا المتخصص يعمل على تقديم خدمات عالية الجودة بأعلى معايير الاحترافية.
+
+نحن نتابع أحدث الاتجاهات في مجال التقنية والذكاء الاصطناعي لنضمن لعملائنا دائمًا أفضل الحلول الممكنة.&lt;/textarea&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="logo-upload"&gt;رفع شعار أو صورة:&lt;/label&gt;
+            &lt;input type="file" id="logo-upload" accept="image/*"&gt;
+            &lt;img id="image-preview" class="hidden" alt="معاينة الصورة"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;🎨 القوالب الجاهزة&lt;/h2&gt;
+          &lt;div class="preset-grid"&gt;
+            &lt;button class="preset-btn active" data-preset="flour-mill"&gt;🌾 مطحنة الدقيق&lt;/button&gt;
+            &lt;button class="preset-btn" data-preset="cement"&gt;🏭 مصنع الأسمنت&lt;/button&gt;
+            &lt;button class="preset-btn" data-preset="shop"&gt;🏪 متجر&lt;/button&gt;
+            &lt;button class="preset-btn" data-preset="general"&gt;💼 أعمال عامة&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;📐 حجم اللوحة&lt;/h2&gt;
+          &lt;div class="canvas-options"&gt;
+            &lt;button class="canvas-btn active" data-canvas="portrait"&gt;📄 عمودي&lt;/button&gt;
+            &lt;button class="canvas-btn" data-canvas="square"&gt;🔲 مربع&lt;/button&gt;
+            &lt;button class="canvas-btn" data-canvas="landscape"&gt;🖼️ أفقي&lt;/button&gt;
+          &div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;🎨 الألوان&lt;/h2&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="bg-color"&gt;لون الخلفية:&lt;/label&gt;
+            &lt;input type="color" id="bg-color" value="#ffffff"&gt;
+          &lt;/div&gt;
+          &lt;div class="form-group"&gt;
+            &lt;label for="accent-color"&gt;لون التمييز:&lt;/label&gt;
+            &lt;input type="color" id="accent-color" value="#c9a84c"&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;📦 كتل النصوص&lt;/h2&gt;
+          &lt;div id="text-blocks-list"&gt;&lt;/div&gt;
+          &lt;div class="action-buttons"&gt;
+            &lt;button class="btn btn-primary" id="add-block-btn"&gt;➕ إضافة كتلة نصية&lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;💾 التصدير والحفظ&lt;/h2&gt;
+          &lt;div class="action-buttons"&gt;
+            &lt;button class="btn btn-success" id="export-png-btn"&gt;📷 تصدير PNG&lt;/button&gt;
+            &lt;button class="btn btn-secondary" id="save-json-btn"&gt;💾 حفظ التصميم JSON&lt;/button&gt;
+            &lt;button class="btn btn-secondary" id="print-btn"&gt;🖨️ طباعة&lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div id="export-status" class="hidden"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;div id="preview-container"&gt;
+        &lt;div class="panel"&gt;
+          &lt;h2 class="panel-title"&gt;👁️ المعاينة المباشرة&lt;/h2&gt;
+          &lt;div id="brochure-preview"&gt;
+            &lt;div class="brochure-canvas canvas-portrait" id="brochure-canvas"&gt;
+              &lt;div class="brochure-header" id="brochure-header"&gt;
+                &lt;img id="brochure-logo" class="bro-logo hidden" alt="شعار"&gt;
+                &lt;h1 class="brochure-title" id="brochure-title-display"&gt;شركة REAL AI للحلول المتقدمة&lt;/h1&gt;
+                &lt;p class="brochure-subtitle" id="brochure-subtitle-display"&gt;نقدم حلولاً مبتكرة لمستقبل أفضل&lt;/p&gt;
+              &lt;/div&gt;
+              &lt;p class="brochure-body" id="brochure-body-display"&gt;&lt;/p&gt;
+              &lt;div class="text-blocks-container" id="preview-text-blocks"&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;footer&gt;
+      &lt;p&gt;REAL AI BROCHURE - مصمم البروشورات الاحترافي &amp;copy; 2024&lt;/p&gt;
+      &lt;p&gt;جميع الميزات تعمل محليًا في المتصفح بدون اتصال بالإنترنت&lt;/p&gt;
+    &lt;/footer&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    (function() {
+      'use strict';
+
+      // State management
+      const state = {
+        preset: 'flour-mill',
+        canvas: 'portrait',
+        textBlocks: [],
+        logoData: null,
+        nextBlockId: 1
+      };
+
+      // Presets data
+      const presets = {
+        'flour-mill': {
+          title: 'مطاحن النخبة للدقيق',
+          subtitle: 'جودة فائقة منذ عام 1985',
+          body: 'تأسست مطاحن النخبة للدقيق عام 1985، ومنذ ذلك الحين ونحن نقدم أفضل أنواع الدقيق للمخابز والمطاعم في المملكة العربية السعودية. نستخدم أحدث التقنيات في عصر الحبوب لضمان أعلى معايير الجودة والنظافة.\n\nنمتلك خطوط إنتاج متطورة تغطي جميع احتياجات السوق من الدقيق الأبيض الفاخر إلى الدقيق الكامل والصناعي. فريقنا من الخبراء يعمل على مدار الساعة لضمان رضا عملائنا.\n\nرؤيتنا أن نكون الخيار الأول في صناعة الدقيق على مستوى المنطقة.',
+          bg: '#fffef5',
+          accent: '#8B6914'
+        },
+        'cement': {
+          title: 'مصنع الأسمنت العربي',
+          subtitle: 'بناء المستقبل بأعلى المعايير',
+          body: 'يُعد مصنع الأسمنت العربي من أكبر منتجى الأسمنت في المنطقة، حيث نتميز بإنتاج أنواع متعددة من الأسمنت بدرجة عالية الجودة تلبي مختلف الاحتياجات الإنشائية.\n\nنمتلك أحدث خطوط الإنتاج والتكنولوجيا المتقدمة لضمان التوافق مع المعايير الدولية. نفخر بشراكاتنا مع كبرى شركات المقاولات والإنشاءات.\n\nنسعى دائمًا للابتكار وتحسين الأداء لتلبية متطلبات عملائنا.',
+          bg: '#f0ebe3',
+          accent: '#5a5a5a'
+        },
+        'shop': {
+          title: 'مول المدينة التجاري',
+          subtitle: 'تسوق بذكاء ووفر أكثر',
+          body: 'مرحبًا بكم في مول المدينة التجاري، وجهتكم الأولى للتسوق والترفيه. نوفر لكم تجربة تسوق فريدة مع مجموعة واسعة من المتاجر التي تشمل الأزياء والإلكترونيات والأجهزة المنزلية.\n\nاستمتعوا بمرافقنا الترفيهية العصرية ومطاعمنا الراقية التي تناسب جميع الأذواق. نحرص على تقديم أفضل العروض والخصومات لعملائنا الكرام.\n\nزورونا خلال أيام الأسبوع من 10 صباحًا حتى 11 مساءً، وأيام الجمعة من 2 ظهرًا حتى 12 منتصف الليل.',
+          bg: '#f5f0ff',
+          accent: '#6c5ce7'
+        },
+        'general': {
+          title: 'شركة REAL AI للحلول المتقدمة',
+          subtitle: 'نقدم حلولاً مبتكرة لمستقبل أفضل',
+          body: 'تأسست شركة REAL AI للحلول المتقدمة بهدف تقديم أفضل الحلول التقنية لمؤسسات الأعمال في المنطقة العربية. نحن نؤمن بأن التكنولوجيا هي مفتاح النجاح في العصر الحديث.\n\nتهدف شركتنا إلى تمكين المؤسسات من تحقيق أهدافها من خلال حلول ذكية ومتطورة تلبي احتياجات السوق المحلية والعالمية. فريقنا المتخصص يعمل على تقديم خدمات عالية الجودة بأعلى معايير الاحترافية.\n\nنحن نتابع أحدث الاتجاهات في مجال التقنية والذكاء الاصطناعي لنضمن لعملائنا دائمًا أفضل الحلول الممكنة.',
+          bg: '#ffffff',
+          accent: '#c9a84c'
+        }
+      };
+
+      // DOM Elements
+      const els = {
+        titleInput: document.getElementById('business-title'),
+        subtitleInput: document.getElementById('business-subtitle'),
+        bodyInput: document.getElementById('business-body'),
+        logoUpload: document.getElementById('logo-upload'),
+        imagePreview: document.getElementById('image-preview'),
+        presetBtns: document.querySelectorAll('.preset-btn'),
+        canvasBtns: document.querySelectorAll('.canvas-btn'),
+        bgColorInput: document.getElementById('bg-color'),
+        accentColorInput: document.getElementById('accent-color'),
+        addBlockBtn: document.getElementById('add-block-btn'),
+        textBlocksList: document.getElementById('text-blocks-list'),
+        previewCanvas: document.getElementById('brochure-canvas'),
+        brochureTitle: document.getElementById('brochure-title-display'),
+        brochureSubtitle: document.getElementById('brochure-subtitle-display'),
+        brochureBody: document.getElementById('brochure-body-display'),
+        brochureLogo: document.getElementById('brochure-logo'),
+        brochureHeader: document.getElementById('brochure-header'),
+        previewTextBlocks: document.getElementById('preview-text-blocks'),
+        exportBtn: document.getElementById('export-png-btn'),
+        saveJsonBtn: document.getElementById('save-json-btn'),
+        printBtn: document.getElementById('print-btn'),
+        exportStatus: document.getElementById('export-status')
+      };
+
+      // Update preview
+      function updatePreview() {
+        els.brochureTitle.textContent = els.titleInput.value;
+        els.brochureSubtitle.textContent = els.subtitleInput.value;
+        els.brochureBody.textContent = els.bodyInput.value;
+
+        const bg = els.bgColorInput.value;
+        const accent = els.accentColorInput.value;
+        els.previewCanvas.style.background = bg;
+        els.brochureHeader.style.borderBottomColor = accent;
+        els.brochureSubtitle.style.color = accent;
+      }
+
+      // Image upload handler
+      els.logoUpload.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          state.logoData = ev.target.result;
+          els.brochureLogo.src = ev.target.result;
+          els.brochureLogo.classList.remove('hidden');
+          els.imagePreview.src = ev.target.result;
+          els.imagePreview.classList.remove('hidden');
+        };
+        reader.readAsDataURL(file);
+      });
+
+      // Preset selection
+      els.presetBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          els.presetBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          state.preset = this.dataset.preset;
+          const preset = presets[state.preset];
+          if (preset) {
+            els.titleInput.value = preset.title;
+            els.subtitleInput.value = preset.subtitle;
+            els.bodyInput.value = preset.body;
+            els.bgColorInput.value = preset.bg;
+            els.accentColorInput.value = preset.accent;
+            updatePreview();
+          }
+        });
+      });
+
+      // Canvas type selection
+      els.canvasBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          els.canvasBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          state.canvas = this.dataset.canvas;
+          els.previewCanvas.className = 'brochure-canvas canvas-' + state.canvas;
+        });
+      });
+
+      // Color inputs
+      els.bgColorInput.addEventListener('input', updatePreview);
+      els.accentColorInput.addEventListener('input', updatePreview);
+
+      // Text inputs
+      els.titleInput.addEventListener('input', updatePreview);
+      els.subtitleInput.addEventListener('input', updatePreview);
+      els.bodyInput.addEventListener('input', updatePreview);
+
+      // Text blocks management
+      function addTextBlock(title, content) {
+        const block = {
+          id: state.nextBlockId++,
+          title: title || 'عنوان جديد',
+          content: content || 'محتوى كتلة النص. يمكنك تعديل هذا النص من خلال النقر على التحرير.'
+        };
+        state.textBlocks.push(block);
+        renderTextBlocks();
+        updatePreview();
+      }
+
+      function removeTextBlock(id) {
+        state.textBlocks = state.textBlocks.filter(b => b.id !== id);
+        renderTextBlocks();
+        updatePreview();
+      }
+
+      function renderTextBlocks() {
+        els.textBlocksList.innerHTML = '';
+        state.textBlocks.forEach(block => {
+          const div = document.createElement('div');
+          div.className = 'text-block';
+          div.innerHTML = `
+            &lt;div class="text-block-header"&gt;
+              &lt;span class="text-block-title"&gt;📌 ${block.title}&lt;/span&gt;
+              &lt;button class="remove-block-btn" onclick="window.removeBlock(${block.id})" title="إزالة"&gt;×&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;textarea placeholder="محتوى الكتلة النصية..." oninput="window.updateBlock(${block.id}, this.value)"&gt;${block.content}&lt;/textarea&gt;
+          `;
+          els.textBlocksList.appendChild(div);
+        });
+        updatePreview();
+      }
+
+      window.removeBlock = removeTextBlock;
+
+      window.updateBlock = function(id, value) {
+        const block = state.textBlocks.find(b => b.id === id);
+        if (block) {
+          block.content = value;
+          updatePreview();
+        }
+      };
+
+      // Add text block button
+      els.addBlockBtn.addEventListener('click', function() {
+        addTextBlock('كتلة نصية ' + state.textBlocks.length + '1', 'محتوى كتلة النص الجديدة. انقر للتحرير.');
+      });
+
+      // Update preview text blocks
+      function updatePreview() {
+        // Header text
+        els.brochureTitle.textContent = els.titleInput.value || 'عنوان الشركة';
+        els.brochureSubtitle.textContent = els.subtitleInput.value || 'الشعار النصي';
+        els.brochureBody.textContent = els.bodyInput.value;
+
+        // Colors
+        const bg = els.bgColorInput.value;
+        const accent = els.accentColorInput.value;
+        els.previewCanvas.style.background = bg;
+        els.brochureHeader.style.borderBottomColor = accent;
+        els.brochureSubtitle.style.color = accent;
+
+        // Preview text blocks
+        els.previewTextBlocks.innerHTML = '';
+        state.textBlocks.forEach(block => {
+          const div = document.createElement('div');
+          div.className = 'text-block';
+          div.innerHTML = `
+            &lt;div class="text-block-header"&gt;
+              &lt;span class="text-block-title"&gt;📌 ${block.title}&lt;/span&gt;
+            &lt;/div&gt;
+            &lt;p class="text-block-content"&gt;${block.content}&lt;/p&gt;
+          `;
+          els.previewTextBlocks.appendChild(div);
+        });
+      }
+
+      // Export to PNG using canvas
+      els.exportBtn.addEventListener('click', function() {
+        try {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          const width = 1200;
+          const height = 1600;
+          canvas.width = width;
+          canvas.height = height;
+
+          // Background
+          const bg = els.bgColorInput.value;
+          ctx.fillStyle = bg;
+          ctx.fillRect(0, 0, width, height);
+
+          // Border
+          const accent = els.accentColorInput.value;
+          ctx.strokeStyle = accent;
+          ctx.lineWidth = 8;
+          ctx.strokeRect(20, 20, width - 40, height - 40);
+
+          // Header section
+          ctx.fillStyle = accent;
+          ctx.fillRect(40, 40, width - 80, 4);
+
+          // Title
+          ctx.fillStyle = '#0a1628';
+          ctx.font = 'bold 48px Arial, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.direction = 'rtl';
+          const title = els.titleInput.value || 'عنوان الشركة';
+          ctx.fillText(title, width / 2, 150);
+
+          // Subtitle
+          ctx.fillStyle = accent;
+          ctx.font = '32px Arial, sans-serif';
+          ctx.fillText(els.subtitleInput.value || '', width / 2, 210);
+
+          // Body text
+          ctx.fillStyle = '#2c2c2c';
+          ctx.font = '24px Arial, sans-serif';
+          ctx.textAlign = 'justify';
+          const bodyText = els.bodyInput.value || '';
+          const lines = wrapText(ctx, bodyText, width - 160);
+          let y = 320;
+          const lineHeight = 36;
+          lines.forEach(line => {
+            ctx.fillText(line, 80, y);
+            y += lineHeight;
+          });
+
+          // Text blocks
+          let blockY = y + 60;
+          state.textBlocks.forEach(block => {
+            // Block background
+            ctx.fillStyle = 'rgba(201, 168, 76, 0.1)';
+            const blockHeight = 120;
+            ctx.fillRect(60, blockY, width - 120, blockHeight);
+
+            // Block border
+            ctx.strokeStyle = accent;
+            ctx.lineWidth = 2;
+            ctx.strokeRect(60, blockY, width - 120, blockHeight);
+
+            // Block title
+            ctx.fillStyle = '#0a1628';
+            ctx.font = 'bold 28px Arial, sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(block.title, width - 80, blockY + 40);
+
+            // Block content
+            ctx.fillStyle = '#2c2c2c';
+            ctx.font = '20px Arial, sans-serif';
+            ctx.textAlign = 'justify';
+            const blockLines = wrapText(ctx, block.content, width - 200);
+            let blockYOffset = blockY + 70;
+            blockLines.slice(0, 3).forEach(line => {
+              ctx.fillText(line, 80, blockYOffset);
+              blockYOffset += 28;
+            });
+
+            blockY += blockHeight + 30;
+          });
+
+          // Footer
+          ctx.fillStyle = accent;
+          ctx.fillRect(40, height - 80, width - 80, 4);
+          ctx.fillStyle = '#0a1628';
+          ctx.font = '20px Arial, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.fillText('REAL AI BROCHURE', width / 2, height - 40);
+
+          // Download
+          canvas.toBlob(function(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'REAL_AI_BROCHURE.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showStatus('تم تصدير البروشور بنجاح كصورة PNG!', 'success');
+          }, 'image/png');
+
+        } catch (err) {
+          showStatus('خطأ في التصدير: ' + err.message, 'error');
+        }
+      });
+
+      // Text wrapping helper
+      function wrapText(context, text, maxWidth) {
+        const words = text.split(' ');
+        const lines = [];
+        let currentLine = '';
+        words.forEach(word => {
+          const testLine = currentLine ? currentLine + ' ' + word : word;
+          if (context.measureText(testLine).width > maxWidth) {
+            if (currentLine) lines.push(currentLine);
+            currentLine = word;
+          } else {
+            currentLine = testLine;
+          }
+        });
+        if (currentLine) lines.push(currentLine);
+        return lines;
+      }
+
+      // Save design as JSON
+      els.saveJsonBtn.addEventListener('click', function() {
+        const design = {
+          title: els.titleInput.value,
+          subtitle: els.subtitleInput.value,
+          body: els.bodyInput.value,
+          bgColor: els.bgColorInput.value,
+          accentColor: els.accentColorInput.value,
+          preset: state.preset,
+          canvas: state.canvas,
+          logoData: state.logoData,
+          textBlocks: state.textBlocks,
+          exportedAt: new Date().toISOString()
+        };
+        const json = JSON.stringify(design, null, 2);
+        const blob = new Blob([json], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'REAL_AI_BROCHURE_design.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showStatus('تم حفظ التصميم بنجاح!', 'success');
+      });
+
+      // Print
+      els.printBtn.addEventListener('click', function() {
+        const printContent = els.previewCanvas.outerHTML;
+        const printWindow = window.open('', '_blank');
+ printWindow.document.write('&lt;!DOCTYPE html&gt;&lt;html lang="ar" dir="rtl"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;&lt;title&gt;طباعة البروشور&lt;/title&gt;&lt;style&gt;
+          body { font-family: Arial, sans-serif; direction: rtl; padding: 40px; }
+          .brochure-canvas { padding: 40px; border: 2px solid #c9a84c; border-radius: 8px; min-height: 600px; }
+          .brochure-header { text-align: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 3px solid #c9a84c; }
+          .brochure-title { font-size: 32px; color: #0a1628; margin-bottom: 10px; }
+          .brochure-subtitle { font-size: 20px; color: #c9a84c; font-weight: bold; }
+          .brochure-body { font-size: 16px; line-height: 1.8; color: #2c2c2c; }
+          .text-block { background: rgba(201,168,76,0.1); border: 1px solid #c9a84c; border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+          .text-block-title { font-weight: bold; color: #0a1628; margin-bottom: 10px; }
+          .text-block-content { color: #2c2c2c; }
+          img { max-width: 120px; }
+        &lt;/style&gt;&lt;/head&gt;&lt;body&gt;' + printContent + '&lt;/body&gt;&lt;/html&gt;');
+        printWindow.document.close();
+        printWindow.focus();
+        setTimeout(function() {
+          printWindow.print();
+        }, 500);
+      });
+
+      // Show status message
+      function showStatus(message, type) {
+        els.exportStatus.textContent = message;
+        els.exportStatus.className = 'export-status status-' + type;
+        els.exportStatus.classList.remove('hidden');
+        setTimeout(function() {
+          els.exportStatus.classList.add('hidden');
+        }, 5000);
+      }
+
+      // Initialize
+      updatePreview();
+
+      // Add some default text blocks
+      addTextBlock('خدماتنا', 'نقدم مجموعة شاملة من الخدمات المتكاملة التي تلبي جميع احتياجاتكم');
+      addTextBlock('لماذا نحن', 'خبرة تمتد لسنوات + فريق متخصص + حلول مبتكرة + دعم فني متواصل');
+      addTextBlock('تواصل معنا', 'الهاتف: 0123456789 | البريد: info@real-ai.com | الموقع: www.real-ai.com');
+
+    })();
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
